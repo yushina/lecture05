@@ -18,6 +18,11 @@ function enableLoop(){
   player.loop = true;
 }
 
+function backRate(){
+  var player = document.querySelector("audio");
+  player.playbackRate = 1;
+}
+
 function onSkip15secButtonClicked(event){
   skip15sec();
 }
@@ -34,6 +39,11 @@ function onEnableLoopButtonClicked(event){
   enableLoop();
 }
 
+function onBackRateButton(event){
+  backRate();
+  var label = 
+  document.querySelector("#playback-rate-control > span"); label.textContent = "x " + 1;
+}
 
 function onPlaybackRateChanged(event){ var rate = playbackRateControl.value; setPlaybackRate(rate);
 };
@@ -52,6 +62,14 @@ var player = document.querySelector("audio"); player.playbackRate = value; showP
 }
 
 
+
+function resetPlaybackRate(){
+  showPlaybackRate = value;
+  showPlaybackRate(value);
+}
+
+
+
 var skip15secButton = document.querySelector("#skip");
 skip15secButton.addEventListener("click",  onSkip15secButtonClicked);
 
@@ -64,6 +82,8 @@ rewindToTopButton.addEventListener("click",  onRewindToTopButtonClicked);
 var enableLoopButton = document.querySelector("#enableLoop");
 enableLoopButton.addEventListener("click",  onEnableLoopButtonClicked);
 
+var backRateButton = document.querySelector("#backx1");
+backRateButton.addEventListener("click", onBackRateButton);
 /*
 var backx1Button = document.querySelector("#backx1");
 backx1Button.addEventListener("click",  onbackx1ButtonClicked);
